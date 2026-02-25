@@ -225,10 +225,18 @@
             font-size: 1rem;
         }
 
+        /* --- 추가된 부분: 3번 문항 테이블을 감싸는 영역에 스크롤 생성 --- */
+        #q3_table_container {
+            max-height: 400px; /* 원하는 스크롤 창의 최대 높이 (화면에 맞게 조절 가능) */
+            overflow-y: auto;  /* 세로 스크롤바 자동 생성 */
+            border-radius: 6px;
+            border: 1px solid #e2e8f0; /* 스크롤 박스 테두리 */
+        }
+
         .checkbox-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 0.8rem;
+            margin-top: 0; /* 컨테이너 안에서 여백이 없도록 기존 margin-top 제거 */
         }
 
         .checkbox-table th,
@@ -241,6 +249,11 @@
         .checkbox-table th {
             background-color: #f0f4f8;
             font-weight: 600;
+            /* --- 추가된 부분: 스크롤할 때 제목(헤더) 행을 상단에 고정 --- */
+            position: sticky;
+            top: 0;
+            z-index: 10; /* 헤더가 본문 내용 밑으로 깔리지 않게 위로 띄움 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 헤더 고정 시 본문과 구분되는 옅은 그림자 추가 */
         }
 
         .checkbox-table td input[type="radio"] {
@@ -1441,6 +1454,7 @@
 </body>
 
 </html>
+
 
 
 
