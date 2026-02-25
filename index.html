@@ -451,6 +451,15 @@
             font-size: 1rem;
             font-weight: 500;
         }
+
+        /* --- 추가된 부분: 모바일(768px 이하) 환경에서 특정 요소 숨기기 --- */
+        @media (max-width: 768px) {
+            .user-info-section, 
+            #saveBtn, 
+            #exportBtn {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -1065,10 +1074,16 @@
                 // 사용자 정보 유효성 검사
                 const companyName = document.getElementById('companyName').value.trim();
                 const departmentName = document.getElementById('departmentName').value.trim();
-                if (!companyName) errors.push("사업장명을 입력해주세요.");
-                if (!departmentName) errors.push("부서(공정)명을 입력해주세요.");
-                results.rawValues.companyName = companyName;
-                results.rawValues.departmentName = departmentName;
+                
+                // --- 수정된 부분: 모바일 환경이 아닐 때(768px 초과)만 필수 입력 검사 진행 ---
+                if (window.innerWidth > 768) {
+                    if (!companyName) errors.push("사업장명을 입력해주세요.");
+                    if (!departmentName) errors.push("부서(공정)명을 입력해주세요.");
+                }
+                
+                // 모바일에서 입력창이 숨겨져 빈 값일 경우를 대비해 기본 문자열 삽입 (필요시 수정 가능)
+                results.rawValues.companyName = companyName || "모바일 미입력";
+                results.rawValues.departmentName = departmentName || "모바일 미입력";
 
                 // 문항 1
                 const q1_1_type = getRadioValue('q1_1_type');
@@ -1409,4 +1424,5 @@
 </body>
 
 </html>
+
 
