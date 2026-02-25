@@ -474,16 +474,23 @@
             font-size: 0.95rem;
         }
 
-        /* --- 추가된 부분: 모바일(768px 이하) 환경에서 특정 요소 숨기기 --- */
+        /* --- 모바일(768px 이하) 환경에서 특정 요소 숨기기 및 보이기 --- */
         @media (max-width: 768px) {
             .user-info-section, 
             #saveBtn, 
             #exportBtn {
                 display: none !important;
             }
-
+            
+            /* 스마트폰 화면에서는 경고 문구 표시 */
             .mobile-warning {
                 display: block;
+            }
+
+            /* --- 추가된 부분: 모바일에서 3번 문항의 '기타(직접입력)' 4번째 열 숨기기 --- */
+            .checkbox-table th:nth-child(4),
+            .checkbox-table td:nth-child(4) {
+                display: none !important;
             }
         }
     </style>
@@ -1454,6 +1461,7 @@
 </body>
 
 </html>
+
 
 
 
