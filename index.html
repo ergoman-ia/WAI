@@ -452,12 +452,25 @@
             font-weight: 500;
         }
 
+        .mobile-warning {
+            display: none;
+            color: #e74c3c; /* 가독성 좋은 붉은색 */
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
         /* --- 추가된 부분: 모바일(768px 이하) 환경에서 특정 요소 숨기기 --- */
         @media (max-width: 768px) {
             .user-info-section, 
             #saveBtn, 
             #exportBtn {
                 display: none !important;
+            }
+
+            .mobile-warning {
+                display: block;
             }
         }
     </style>
@@ -470,6 +483,10 @@
             본 설문은 작업자의 작업수행능력을 평가하고, 작업능력을 유지시키고 건강을 증진하도록 하기 위한 기초자료(작업능력지수_Work Ability Index, WAI 산출)를 수집하기 위한 것입니다.
         </p>
 
+        <p class="mobile-warning">
+            이 앱은 PC용으로 스마트폰에서 사용시 화면구성이 보기 좋지 않을 수 있습니다.
+        </p>
+        
         <!-- 사용자 정보 입력 -->
         <div class="user-info-section">
             <div class="flex-row">
@@ -1424,5 +1441,6 @@
 </body>
 
 </html>
+
 
 
