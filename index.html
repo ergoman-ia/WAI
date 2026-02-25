@@ -492,6 +492,12 @@
             .checkbox-table td:nth-child(4) {
                 display: none !important;
             }
+
+            /* --- 추가된 부분: 모바일에서 '문항별 점수' 제목과 상세 내역 박스 숨기기 --- */
+            #result h3:first-of-type,
+            .individual-scores {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -1461,6 +1467,7 @@
 </body>
 
 </html>
+
 
 
 
